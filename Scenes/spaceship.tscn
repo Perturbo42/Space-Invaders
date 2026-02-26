@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsv6obfyf3dis"]
+
+[ext_resource type="Texture2D" uid="uid://dwxo4cueqxl6x" path="res://Assets/Spaceship.png" id="1_5ajj3"]
+[ext_resource type="Script" uid="uid://ce8vfnx8stfo3" path="res://Scripts/spaceship.gd" id="1_qkqkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ajj3"]
+size = Vector2(26, 30)
+
+[node name="Spaceship" type="Area2D" unique_id=936021023]
+script = ExtResource("1_qkqkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733005247]
+shape = SubResource("RectangleShape2D_5ajj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=936666549]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_5ajj3")
