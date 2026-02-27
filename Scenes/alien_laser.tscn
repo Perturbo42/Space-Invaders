@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://br4ot8mx8anum"]
+
+[ext_resource type="Texture2D" uid="uid://ccttqh4jgg1j1" path="res://Assets/Alien Laser.png" id="1_8oy62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y56ns"]
+size = Vector2(10, 22)
+
+[node name="Alien Laser" type="Area2D" unique_id=1241199369]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1454331841]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_8oy62")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1591150800]
+shape = SubResource("RectangleShape2D_y56ns")

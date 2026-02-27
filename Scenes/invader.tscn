@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dhtljkces5seh"]
+
+[ext_resource type="Script" uid="uid://8whxkfqpn8iq" path="res://Scripts/invader.gd" id="1_qiwfo"]
+[ext_resource type="Texture2D" uid="uid://vtrm3tydvws" path="res://Assets/Invader 1.png" id="2_n14cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkqam"]
+size = Vector2(36, 28)
+
+[node name="Invader" type="Area2D" unique_id=671818445]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_qiwfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=625960900]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_n14cu")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652601231]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_mkqam")
