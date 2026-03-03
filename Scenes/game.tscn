@@ -3,9 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://bsv6obfyf3dis" path="res://Scenes/spaceship.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://by1lmubbaahj1" path="res://Scenes/bunker.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://cviqk51ewle38" path="res://Scripts/swarm.gd" id="3_3dryh"]
-[ext_resource type="PackedScene" uid="uid://dhtljkces5seh" path="res://Scenes/invader.tscn" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://b14pfoxmklpw1" path="res://Assets/SpaceInvaders_BackgroundFloor.png" id="4_3dryh"]
 
 [node name="Game" type="Node2D" unique_id=1524259704]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1685487561]
+texture_filter = 1
+position = Vector2(309, 473)
+scale = Vector2(10, 17.625)
+texture = ExtResource("4_3dryh")
 
 [node name="Spaceship" parent="." unique_id=936021023 instance=ExtResource("1_ebmjs")]
 position = Vector2(307, 800)
@@ -23,22 +29,7 @@ position = Vector2(384, 730)
 position = Vector2(537, 730)
 
 [node name="Swarm" type="Node2D" parent="." unique_id=359605840]
-position = Vector2(67, 80)
+position = Vector2(85, 80)
 script = ExtResource("3_3dryh")
-
-[node name="Invader" parent="Swarm" unique_id=671818445 instance=ExtResource("3_wrm1d")]
-
-[node name="Invader2" parent="Swarm" unique_id=1876530607 instance=ExtResource("3_wrm1d")]
-position = Vector2(0, 50)
-
-[node name="Invader3" parent="Swarm" unique_id=21050396 instance=ExtResource("3_wrm1d")]
-position = Vector2(0, 100)
-
-[node name="Invader4" parent="Swarm" unique_id=1767911815 instance=ExtResource("3_wrm1d")]
-position = Vector2(0, 150)
-
-[node name="Invader5" parent="Swarm" unique_id=773065574 instance=ExtResource("3_wrm1d")]
-position = Vector2(0, 200)
-
-[node name="Invader6" parent="Swarm" unique_id=643249643 instance=ExtResource("3_wrm1d")]
-position = Vector2(40, 0)
+row_count = 5
+col_count = 12
