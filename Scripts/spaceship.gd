@@ -1,9 +1,12 @@
 class_name Spaceship extends Area2D
 @export var speed : float
+@export var health: int
 var fired : bool
 const LASER = preload("res://Scenes/laser.tscn")
+signal dead
 
 func _ready() -> void:
+	health = 3
 	speed = 150.0
 	fired = false
 
@@ -25,3 +28,9 @@ func shoot():
 
 func laser_destroyed():
 	fired = false
+
+func take_damage():
+	health -= 1
+	if health <= 0 :
+		dead.emit()
+	

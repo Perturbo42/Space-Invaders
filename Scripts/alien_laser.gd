@@ -1,29 +1,26 @@
-class_name Laser extends Area2D
-signal destroyed
+class_name AlienLaser extends Area2D
+signal alien_laser_destroyed
 @export var speed : float
 
 func _ready() -> void:
 	speed = 300
 
+
 func _process(delta: float) -> void:
-	if global_position.y <= 0:
+	if global_position.y >= 922:
 		destroy_self()
 	else:
-		global_position.y -= speed * delta
-	
+		global_position.y += speed * delta
 
 func destroy_self():
-	destroyed.emit()
+	alien_laser_destroyed.emit()
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is Invader:
-		destroy_self()
-		area.destroy_self()
-	elif area is Bunker:
+	if area is Bunker:
 		destroy_self()
 		area.take_damage()
-	elif area is AlienLaser:
+	elif area is Spaceship:
 		destroy_self()
-		area.destroy_self()
+		area.take_damage()
 	pass # Replace with function body.
