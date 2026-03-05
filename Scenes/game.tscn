@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://coj3w7c3o7rt4"]
 
 [ext_resource type="PackedScene" uid="uid://bsv6obfyf3dis" path="res://Scenes/spaceship.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://c2ltdklmhm4eg" path="res://Scripts/game.gd" id="1_i6g32"]
 [ext_resource type="PackedScene" uid="uid://by1lmubbaahj1" path="res://Scenes/bunker.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://cviqk51ewle38" path="res://Scripts/swarm.gd" id="3_3dryh"]
 [ext_resource type="Texture2D" uid="uid://b14pfoxmklpw1" path="res://Assets/SpaceInvaders_BackgroundFloor.png" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://y6ix3o8xud5y" path="res://Assets/LargeAlien.png" id="6_1l0tm"]
 
 [node name="Game" type="Node2D" unique_id=1524259704]
+script = ExtResource("1_i6g32")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1685487561]
 texture_filter = 1
@@ -33,3 +36,39 @@ position = Vector2(85, 80)
 script = ExtResource("3_3dryh")
 row_count = 5
 col_count = 12
+
+[node name="GameOver" type="Control" parent="." unique_id=1417672060]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="GameOver" unique_id=429060888]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1100.0
+offset_bottom = 800.0
+scale = Vector2(0.56000084, 0.56000006)
+texture = ExtResource("6_1l0tm")
+
+[node name="Label" type="Label" parent="GameOver" unique_id=2095533052]
+texture_filter = 1
+layout_mode = 0
+offset_left = 22.0
+offset_top = 455.0
+offset_right = 596.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="GameOver" unique_id=1604453771]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 589.0
+offset_right = 501.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 75
+text = "Start Over"
+
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]

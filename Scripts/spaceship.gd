@@ -32,5 +32,8 @@ func laser_destroyed():
 func take_damage():
 	health -= 1
 	if health <= 0 :
-		dead.emit()
-	
+		game_over()
+
+func game_over():
+	dead.emit()
+	queue_free()
