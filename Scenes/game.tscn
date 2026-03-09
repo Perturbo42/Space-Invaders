@@ -37,14 +37,19 @@ script = ExtResource("3_3dryh")
 row_count = 5
 col_count = 12
 
-[node name="GameOver" type="Control" parent="." unique_id=1417672060]
-visible = false
+[node name="Control" type="Control" parent="." unique_id=1615634437]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="GameOver" unique_id=429060888]
+[node name="GameOver" type="Control" parent="Control" unique_id=1417672060]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/GameOver" unique_id=429060888]
 texture_filter = 1
 layout_mode = 0
 offset_right = 1100.0
@@ -52,7 +57,7 @@ offset_bottom = 800.0
 scale = Vector2(0.56000084, 0.56000006)
 texture = ExtResource("6_1l0tm")
 
-[node name="Label" type="Label" parent="GameOver" unique_id=2095533052]
+[node name="Label" type="Label" parent="Control/GameOver" unique_id=2095533052]
 texture_filter = 1
 layout_mode = 0
 offset_left = 22.0
@@ -62,7 +67,7 @@ offset_bottom = 592.0
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
 
-[node name="Button" type="Button" parent="GameOver" unique_id=1604453771]
+[node name="Button" type="Button" parent="Control/GameOver" unique_id=1604453771]
 layout_mode = 0
 offset_left = 123.0
 offset_top = 589.0
@@ -71,4 +76,13 @@ offset_bottom = 700.0
 theme_override_font_sizes/font_size = 75
 text = "Start Over"
 
-[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]
+[node name="Score" type="Label" parent="Control" unique_id=311963511]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 20
+text = "100"
+
+[connection signal="pressed" from="Control/GameOver/Button" to="." method="_on_button_pressed"]
