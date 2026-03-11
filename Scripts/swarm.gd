@@ -1,6 +1,7 @@
 class_name Swarm extends Node2D
 const INVADER = preload("res://Scenes/invader.tscn")
 const LASER = preload("res://Scenes/alien_laser.tscn")
+signal alien_died
 
 @export var row_count : int
 @export var col_count : int
@@ -68,6 +69,9 @@ func alien_destroyed(alien : Invader):
 			alien_list.remove_at(i)
 	
 	number_of_aliens -= 1
+	if alien is Invader:
+		print("alien died")
+		alien_died.emit(100)
 
 func move_aliens(delta:float):
 	for list in alien_list:
