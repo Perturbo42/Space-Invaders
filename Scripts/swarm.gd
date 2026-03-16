@@ -76,7 +76,7 @@ func alien_destroyed(alien : Invader):
 func move_aliens(delta:float):
 	for list in alien_list:
 		for alien in list:
-			alien.position.x += movement_dir * movement_speed * delta
+			alien.global_position.x += movement_dir * movement_speed * delta
 
 func move_down(delta:float):
 	var step = movement_speed * delta
@@ -84,7 +84,7 @@ func move_down(delta:float):
 	
 	for list in alien_list:
 		for alien in list:
-			alien.position.y += step
+			alien.global_position.y += step
 	
 	if moved_down_distance >= DOWN_STEP:
 		moving_down = false
